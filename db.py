@@ -10,7 +10,7 @@ def _get_db_config():
     if "DB_HOST" in os.environ:
         return {
             "host": os.environ["DB_HOST"],
-            "port": int(os.environ.get("DB_PORT", 5432)),
+            "port": int(os.environ.get("DB_PORT", "5432")),
             "dbname": os.environ.get("DB_NAME", "jeans"),
             "user": os.environ.get("DB_USER", "postgres"),
             "password": os.environ.get("DB_PASSWORD", ""),

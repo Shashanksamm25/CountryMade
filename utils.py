@@ -1,9 +1,9 @@
 import uuid
 from io import BytesIO
 from pathlib import Path
-from PIL import Image
 
 import streamlit as st
+from PIL import Image
 
 UPLOAD_DIR = Path("uploads")
 ALLOWED_EXT = {".jpg", ".jpeg", ".png"}
@@ -61,7 +61,7 @@ def show_image(filename: str, **kwargs):
             top = (new_h - tgt_h) // 2
             img = img.crop((left, top, left + tgt_w, top + tgt_h))
             st.image(img, **kwargs)
-        except Exception:
+        except Exception: # noqa: BLE001 — intentional fallback for any image-processing failure
             st.image(str(path), **kwargs)
     else:
         st.caption("🖼️ Image not found")

@@ -1,10 +1,10 @@
 import streamlit as st
 
-from auth import current_auth, logout
-from utils import inject_css
 import views_admin as admin
 import views_public as public
 import views_user as user
+from auth import current_auth, logout
+from utils import inject_css
 
 st.set_page_config(page_title="Country Made", page_icon="👖", layout="wide")
 inject_css()

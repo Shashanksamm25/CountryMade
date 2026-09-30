@@ -157,23 +157,22 @@ def _contact():
     left, right = st.columns(2)
     with left:
         st.map({"lat": [19.1417], "lon": [72.8232]}, zoom=11)  # Jogeshwari West, Mumbai
-    with right:
-        with st.form("contact_form", clear_on_submit=True):
-            st.subheader("Get in touch")
-            name = st.text_input("Your name")
-            email = st.text_input("Your email")
-            subject = st.text_input("Subject")
-            message = st.text_area("Your message", height=150)
-            if st.form_submit_button("Send message"):
-                if name and email and message:
-                    execute(
-                        "INSERT INTO contact_messages (name, email, subject, message) "
-                        "VALUES (%s, %s, %s, %s)",
-                        (name.strip(), email.strip(), subject.strip(), message.strip()),
-                    )
-                    st.success("Thanks! Your message has been sent.")
-                else:
-                    st.warning("Name, email and message are required.")
+    with right, st.form("contact_form", clear_on_submit=True):
+        st.subheader("Get in touch")
+        name = st.text_input("Your name")
+        email = st.text_input("Your email")
+        subject = st.text_input("Subject")
+        message = st.text_area("Your message", height=150)
+        if st.form_submit_button("Send message"):
+            if name and email and message:
+                execute(
+                    "INSERT INTO contact_messages (name, email, subject, message) "
+                    "VALUES (%s, %s, %s, %s)",
+                    (name.strip(), email.strip(), subject.strip(), message.strip()),
+                )
+                st.success("Thanks! Your message has been sent.")
+            else:
+                st.warning("Name, email and message are required.")
 
 
 def _footer():
