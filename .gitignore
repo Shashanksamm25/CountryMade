@@ -1,0 +1,21 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Environment / secrets
+.env
+.streamlit/secrets.toml
+
+# Runtime data (Docker uses a named volume for this now anyway)
+uploads/*
+!uploads/.gitkeep
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Misc
+temp
